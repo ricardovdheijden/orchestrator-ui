@@ -1,5 +1,5 @@
 import React from 'react';
-import { EuiText } from '@elastic/eui';
+import { EuiBadge, EuiButton } from '@elastic/eui';
 import { useEuiTheme } from '@elastic/eui';
 
 export function Index() {
@@ -7,13 +7,17 @@ export function Index() {
 
     return (
         <>
-            <EuiText
-                css={{
-                    background: euiTheme.colors.lightShade,
-                }}
-            >
-                Content
-            </EuiText>
+            <div>
+                <span>EuiBadge:</span>
+                <EuiBadge color="primary">Badge-1</EuiBadge>
+                <EuiBadge color={euiTheme.colors.primary}>Badge-2</EuiBadge>
+            </div>
+            <div>
+                <span>EuiButton</span>
+                <EuiButton color="primary" fill>
+                    Button
+                </EuiButton>
+            </div>
         </>
     );
 }
