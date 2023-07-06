@@ -40,7 +40,7 @@ import {
     SubscriptionsResult,
     SubscriptionsSort,
     TAG,
-} from './subscriptionQuery';
+} from './subscriptionsQuery';
 import { Criteria, Pagination } from '@elastic/eui';
 
 const COLUMN_LABEL_ID = 'ID';
@@ -190,16 +190,20 @@ export const Subscriptions: FC<SubscriptionsProps> = ({
     const { data, isFetching } = useStringQueryWithGraphql<
         SubscriptionsResult,
         SubscriptionsQueryVariables
-    >(GET_SUBSCRIPTIONS_PAGINATED_REQUEST_DOCUMENT, {
-        ...GET_SUBSCRIPTIONS_PAGINATED_DEFAULT_VARIABLES,
-        first: pageSize,
-        after: pageIndex,
-        sortBy: sortedColumnId && {
-            field: sortedColumnId.toString(),
-            order: sortOrder.order,
+    >(
+        GET_SUBSCRIPTIONS_PAGINATED_REQUEST_DOCUMENT,
+        {
+            ...GET_SUBSCRIPTIONS_PAGINATED_DEFAULT_VARIABLES,
+            first: pageSize,
+            after: pageIndex,
+            sortBy: sortedColumnId && {
+                field: sortedColumnId.toString(),
+                order: sortOrder.order,
+            },
+            filterBy,
         },
-        filterBy,
-    });
+        'subscriptions',
+    );
 
     if (!sortedColumnId) {
         router.replace('/subscriptions');
