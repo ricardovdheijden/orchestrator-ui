@@ -2,10 +2,11 @@ import React, { FC } from 'react';
 import { useOrchestratorTheme } from '../../hooks/useOrchestratorTheme';
 import { ArrowNarrowDown } from '../../icons/ArrowNarrowDown';
 import { ArrowNarrowUp } from '../../icons/ArrowNarrowUp';
-import { SortDirection } from './columns';
+
+import { SortOrder } from '../../types';
 
 export type SortDirectionIconProps = {
-    sortDirection: SortDirection;
+    sortDirection: SortOrder;
 };
 
 export const SortDirectionIcon: FC<SortDirectionIconProps> = ({
@@ -13,7 +14,7 @@ export const SortDirectionIcon: FC<SortDirectionIconProps> = ({
 }) => {
     const { theme } = useOrchestratorTheme();
 
-    return sortDirection === SortDirection.Asc ? (
+    return sortDirection === SortOrder.Asc ? (
         <ArrowNarrowUp
             color={theme.colors.subduedText}
             height={24}

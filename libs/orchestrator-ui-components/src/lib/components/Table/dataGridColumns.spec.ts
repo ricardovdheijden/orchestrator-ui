@@ -3,7 +3,9 @@ import {
     mapColumnSortToEuiDataGridSorting,
     DataGridTableColumns,
 } from './dataGridColumns';
-import { DataSorting, SortDirection } from './columns';
+import { DataSorting } from './columns';
+
+import { SortOrder } from '../../types';
 
 interface TestColumn {
     id: string;
@@ -95,7 +97,7 @@ describe('dataGridColumns', () => {
         it('should return sort dict with columns and onsort', () => {
             const sortBy: DataSorting<TestColumn> = {
                 columnId: 'id',
-                sortDirection: SortDirection.Asc,
+                sortDirection: SortOrder.Asc,
             };
             const onSort = (dataSorting: DataSorting<TestColumn>) => {
                 sortBy.columnId = dataSorting.columnId;
