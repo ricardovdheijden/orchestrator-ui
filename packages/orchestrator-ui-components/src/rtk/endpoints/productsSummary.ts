@@ -8,7 +8,7 @@ import {
 } from '@/types';
 
 export const productsSummary = `
-    query MetadataProducts(
+    query MetadataProductsSummary(
         $first: Int!
         $after: Int!
         $sortBy: [GraphqlSort!]
