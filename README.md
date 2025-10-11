@@ -6,8 +6,6 @@ It is meant to be used together with an app that includes this library through N
 To install and run the app:
 
 ```
-git clone git@github.com:workfloworchestrator/orchestrator-ui-library.git
-cd orchestrator-ui-library
 git submodule init
 git submodule update
 # Optionally: to update to the latest version of the git submodule instead of the ones currently pinned to the repo run
